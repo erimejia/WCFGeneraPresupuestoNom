@@ -1,0 +1,27 @@
+# --- Visual Studio ---
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# --- Build outputs ---
+**/bin/
+**/obj/
+**/Debug/
+**/Release/
+**/x64/
+**/x86/
+
+# --- NuGet (packages.config style) ---
+# packages/
+
+# --- Logs / temp ---
+*.log
+*.tmp
+*.bak
+*.swp
+
+# --- IIS / ASP.NET temp ---
+**/App_Data/*.mdf
+**/App_Data/*.ldf

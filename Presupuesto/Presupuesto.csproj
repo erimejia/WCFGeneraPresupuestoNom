@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{10A22913-AA43-4350-A2A3-B4075E6B73A6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Presupuesto</RootNamespace>
+    <AssemblyName>Presupuesto</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Udla.Exceptions">
+      <HintPath>..\packages\Udla.Exceptions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Clases\clsActnumberDebitamt.cs" />
+    <Compile Include="Clases\clsParamBachnumbRefrece.cs" />
+    <Compile Include="Clases\clsParamsBusca_PolizasNom.cs" />
+    <Compile Include="Clases\clsObtenProject.cs" />
+    <Compile Include="Clases\clsParams_ProjectGuarda.cs" />
+    <Compile Include="Clases\clsResult_CuentaNomBuscar.cs" />
+    <Compile Include="Clases\cuentaWDdestinoSinValesYsinCredits.cs" />
+    <Compile Include="Clases\clsResult_ParameterBuscar.cs" />
+    <Compile Include="Clases\clsParams_CostCenterGuarda.cs" />
+    <Compile Include="Clases\clsParams_CuentaGuarda.cs" />
+    <Compile Include="Clases\clsParams_LedgerAccountGuarda.cs" />
+    <Compile Include="Clases\clsObtenCostCenter.cs" />
+    <Compile Include="Clases\clsObtenCurrency.cs" />
+    <Compile Include="Clases\clsObtenLedgerAccount.cs" />
+    <Compile Include="Clases\clsObtenParameters.cs" />
+    <Compile Include="Clases\clsObtenRol.cs" />
+    <Compile Include="Clases\clsObtenSpendCategory.cs" />
+    <Compile Include="Clases\clsParams_ParameterGuarda.cs" />
+    <Compile Include="Clases\clsResult_CuentaBuscar.cs" />
+    <Compile Include="Clases\clsResult_Error.cs" />
+    <Compile Include="Clases\clsResultado.cs" />
+    <Compile Include="Clases\clsResult_CostCenterBuscar.cs" />
+    <Compile Include="Clases\clsResult_LedgerAccountBuscar.cs" />
+    <Compile Include="Clases\clsResult_PolizaNomBuscar.cs" />
+    <Compile Include="Clases\clsResult_ProjectBuscar.cs" />
+    <Compile Include="Clases\clsResult_SpendCategoryBuscar.cs" />
+    <Compile Include="Clases\clsResult_UsuarioBuscar.cs" />
+    <Compile Include="Clases\clsResult_ValidaAcceso.cs" />
+    <Compile Include="Clases\clsParams_SpendCategoryGuarda.cs" />
+    <Compile Include="Clases\clsObtenTipoCuenta.cs" />
+    <Compile Include="Clases\clsParams_UsuarioGuarda.cs" />
+    <Compile Include="Clases\clsUsuarioAD.cs" />
+    <Compile Include="Clases\cuentaWDorigenCREDIT.cs" />
+    <Compile Include="Clases\ledgAcctCredit_ELIMINAR.cs" />
+    <Compile Include="Clases\clsResult_LayoutNominaObten.cs" />
+    <Compile Include="Clases\listCatalogParameters.cs" />
+    <Compile Include="Clases\listCuentasGP.cs" />
+    <Compile Include="Clases\listErrorPolizas.cs" />
+    <Compile Include="Clases\listParamsLayoutImportBudgetAmendment.cs" />
+    <Compile Include="Clases\listParamsLayoutAmendmentEntryData.cs" />
+    <Compile Include="Clases\varArrayBachNumb.cs" />
+    <Compile Include="Entidades\ModelUDLAPSIF.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelUDLAPSIF.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\ModelUDLAPSIF.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\ModelUDLAPSIF.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelUDLAPSIF.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\PTONOM_CAT_COSTCENTER.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\PTONOM_CAT_CUENTAS.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\PTONOM_CAT_CURRENCY.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\PTONOM_CAT_LEDGERACCOUNT.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\PTONOM_CAT_PARAMETERS.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\PTONOM_CAT_PROJECT.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\PTONOM_CAT_SPENDCATEGORY.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\UDLAPSIF_PTONOM_COSTCENTER_AGREGA_ACTUALIZA_Result.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\UDLAPSIF_PTONOM_COSTCENTER_BUSCARCC_Result.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\UDLAPSIF_PTONOM_COSTCENTER_OBTENCC_Result.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\UDLAPSIF_PTONOM_CUENTAS_AGREGA_ACTUALIZA_Result.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\UDLAPSIF_PTONOM_CUENTAS_BUSCARC_Result.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\UDLAPSIF_PTONOM_CURRENCY_OBTENCURRENCY_Result.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\UDLAPSIF_PTONOM_LEDGERACCOUNT_AGREGA_ACTUALIZA_Result.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\UDLAPSIF_PTONOM_LEDGERACCOUNT_BUSCARLA_Result.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\UDLAPSIF_PTONOM_LEDGERACCOUNT_OBTENLA_Result.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\UDLAPSIF_PTONOM_PARAMETERS_AGREGA_ACTUALIZA_Result.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\UDLAPSIF_PTONOM_PARAMETERS_OBTENP_Result.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\UDLAPSIF_PTONOM_PARAMETER_BUSCARP_Result.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\UDLAPSIF_PTONOM_PROJECT_AGREGA_ACTUALIZA_Result.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\UDLAPSIF_PTONOM_PROJECT_BUSCARPR_Result.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\UDLAPSIF_PTONOM_PROJECT_OBTENPR_Result.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\UDLAPSIF_PTONOM_ROLES_OBTENROL_Result.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\UDLAPSIF_PTONOM_SPENDCATEGORY_AGREGA_ACTUALIZA_Result.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\UDLAPSIF_PTONOM_SPENDCATEGORY_BUSCARSC_Result.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\UDLAPSIF_PTONOM_SPENDCATEGORY_OBTENSC_Result.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\UDLAPSIF_PTONOM_TIPOCUENTA_OBTENTC_Result.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\UDLAPSIF_PTONOM_USUARIOS_AGREGA_ACTUALIZA_Result.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\UDLAPSIF_PTONOM_USUARIOS_BUSCARU_Result.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\UDLAPSIF_PTONOM_VALIDAACCESO_Result.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\xNOMExcelRH.cs">
+      <DependentUpon>ModelUDLAPSIF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Logica\LAcceso.cs" />
+    <Compile Include="Logica\LCatalogo.cs" />
+    <Compile Include="Logica\LOperacion.cs" />
+    <Compile Include="Logica\LReportes.cs" />
+    <Compile Include="Presentacion\PAcceso.cs" />
+    <Compile Include="Presentacion\PCatalogo.cs" />
+    <Compile Include="Presentacion\POperacion.cs" />
+    <Compile Include="Presentacion\PReportes.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Entidades\ModelUDLAPSIF.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelUDLAPSIF.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entidades\ModelUDLAPSIF.edmx.diagram">
+      <DependentUpon>ModelUDLAPSIF.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Entidades\ModelUDLAPSIF.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelUDLAPSIF.edmx</DependentUpon>
+      <LastGenOutput>ModelUDLAPSIF.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entidades\ModelUDLAPSIF.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelUDLAPSIF.edmx</DependentUpon>
+      <LastGenOutput>ModelUDLAPSIF.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

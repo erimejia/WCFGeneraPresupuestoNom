@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="67b224c3e6374ba1ad36783703e4ac34" Name="Diagram1" >
+        <EntityTypeShape EntityType="UDLAPSIFModel.PTONOM_CAT_COSTCENTER" Width="2.25" PointX="9.875" PointY="1.375" />
+        <EntityTypeShape EntityType="UDLAPSIFModel.PTONOM_CAT_CUENTAS" Width="2.375" PointX="5.625" PointY="0.5" />
+        <EntityTypeShape EntityType="UDLAPSIFModel.PTONOM_CAT_LEDGERACCOUNT" Width="2.75" PointX="5.5" PointY="6" />
+        <EntityTypeShape EntityType="UDLAPSIFModel.PTONOM_CAT_SPENDCATEGORY" Width="2.25" PointX="1.5" PointY="1.25" />
+        <AssociationConnector Association="UDLAPSIFModel.FK_PTONOM_CAT_CUENTAS_ID_CC" />
+        <AssociationConnector Association="UDLAPSIFModel.FK_PTONOM_CAT_CUENTAS_ID_LA" />
+        <AssociationConnector Association="UDLAPSIFModel.FK_PTONOM_CAT_CUENTAS_ID_SC" />
+        <EntityTypeShape EntityType="UDLAPSIFModel.PTONOM_CAT_PROJECT" Width="2" PointX="0.75" PointY="6" />
+        <AssociationConnector Association="UDLAPSIFModel.FK_PTONOM_CAT_CUENTAS_IDPROJECT" />
+        <EntityTypeShape EntityType="UDLAPSIFModel.PTONOM_CAT_CURRENCY" Width="2.375" PointX="10" PointY="5.875" />
+        <AssociationConnector Association="UDLAPSIFModel.FK_PTONOM_CAT_CUENTAS_IDCURRENCY" />
+        <EntityTypeShape EntityType="UDLAPSIFModel.PTONOM_CAT_PARAMETERS" Width="1.5" PointX="13.625" PointY="0.5" />
+        <EntityTypeShape EntityType="UDLAPSIFModel.xNOMExcelRH" Width="1.5" PointX="13.5" PointY="3.375" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

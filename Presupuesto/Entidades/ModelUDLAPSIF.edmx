@@ -1,0 +1,1276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="UDLAPSIFModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="PTONOM_CAT_COSTCENTER">
+          <Key>
+            <PropertyRef Name="ID_CC" />
+          </Key>
+          <Property Name="ID_CC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CC" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="NAMEUPDATE" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="ESTATUS" Type="bit" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="create_time" Type="datetime" Nullable="false" />
+          <Property Name="update_user" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="update_time" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PTONOM_CAT_CUENTAS">
+          <Key>
+            <PropertyRef Name="ID_CUENTA" />
+          </Key>
+          <Property Name="ID_CUENTA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CUENTA" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="NAMEUPDATE" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="ESTATUS" Type="bit" Nullable="false" />
+          <Property Name="ID_CC" Type="int" Nullable="false" />
+          <Property Name="ID_LA" Type="int" Nullable="false" />
+          <Property Name="ID_SC" Type="int" Nullable="false" />
+          <Property Name="IDCURRENCY" Type="smallint" Nullable="false" />
+          <Property Name="IDPROJECT" Type="smallint" />
+          <Property Name="VALES" Type="bit" Nullable="false" />
+          <Property Name="IDTIPOCUENTA" Type="smallint" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="create_time" Type="datetime" Nullable="false" />
+          <Property Name="update_user" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="update_time" Type="datetime" Nullable="false" />
+          <Property Name="CUENTAESPECIAL" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PTONOM_CAT_CURRENCY">
+          <Key>
+            <PropertyRef Name="IDCURRENCY" />
+          </Key>
+          <Property Name="IDCURRENCY" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COUNTRY" Type="varchar" MaxLength="100" />
+          <Property Name="CURRENCY" Type="varchar" MaxLength="100" />
+          <Property Name="CODE" Type="varchar" MaxLength="4" />
+          <Property Name="MINOR_UNIT" Type="smallint" />
+          <Property Name="SYMBOL" Type="varchar" MaxLength="100" />
+          <Property Name="ESTATUS" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PTONOM_CAT_LEDGERACCOUNT">
+          <Key>
+            <PropertyRef Name="ID_LA" />
+          </Key>
+          <Property Name="ID_LA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LA" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="NAMEUPDATE" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="ESTATUS" Type="bit" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="create_time" Type="datetime" Nullable="false" />
+          <Property Name="update_user" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="update_time" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PTONOM_CAT_PARAMETERS">
+          <Key>
+            <PropertyRef Name="IDPARAM" />
+          </Key>
+          <Property Name="IDPARAM" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRIBEPARAM" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="VALUEPARAM" Type="varchar" MaxLength="300" />
+          <Property Name="ESTATUS" Type="bit" Nullable="false" />
+          <Property Name="NAMEUPDATE" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="create_time" Type="datetime" Nullable="false" />
+          <Property Name="update_user" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="update_time" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PTONOM_CAT_PROJECT">
+          <Key>
+            <PropertyRef Name="IDPROJECT" />
+          </Key>
+          <Property Name="IDPROJECT" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PROJECT" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="NAMEUPDATE" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="ESTATUS" Type="bit" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="create_time" Type="datetime" Nullable="false" />
+          <Property Name="update_user" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="update_time" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PTONOM_CAT_SPENDCATEGORY">
+          <Key>
+            <PropertyRef Name="ID_SC" />
+          </Key>
+          <Property Name="ID_SC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SC" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="NAMEUPDATE" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="ESTATUS" Type="bit" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="create_time" Type="datetime" Nullable="false" />
+          <Property Name="update_user" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="update_time" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'UDLAPSIF.dbo.xNOM2001GPInt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="xNOMExcelRH">
+          <Key>
+            <PropertyRef Name="JRNLIDX" />
+          </Key>
+          <Property Name="BACHNUMB" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="ACTINDX" Type="int" Nullable="false" />
+          <Property Name="ACTNUMBER" Type="varchar" MaxLength="75" Nullable="false" />
+          <Property Name="CRDTAMT" Type="numeric" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="CURNCYID" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="CURRNIDX" Type="int" Nullable="false" />
+          <Property Name="CURYCRDTAMT" Type="numeric" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="CURYDEBITAMT" Type="numeric" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="DEBITAMT" Type="numeric" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="DSCRIPTN" Type="varchar" MaxLength="31" Nullable="false" />
+          <Property Name="EXCHDATE" Type="datetime" Nullable="false" />
+          <Property Name="REFRENCE" Type="varchar" MaxLength="31" Nullable="false" />
+          <Property Name="SOURCDOC" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="TRXDATE" Type="datetime" Nullable="false" />
+          <Property Name="XCHGRATE" Type="numeric" Precision="19" Scale="7" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="isDeleted" Type="bit" />
+          <Property Name="LoginName" Type="varchar" MaxLength="15" />
+          <Property Name="ReadDate" Type="datetime" />
+          <Property Name="isRead" Type="bit" />
+          <Property Name="JRNLIDX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CtrlPPTO" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <Association Name="FK_PTONOM_CAT_CUENTAS_ID_CC">
+          <End Role="PTONOM_CAT_COSTCENTER" Type="Self.PTONOM_CAT_COSTCENTER" Multiplicity="1" />
+          <End Role="PTONOM_CAT_CUENTAS" Type="Self.PTONOM_CAT_CUENTAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PTONOM_CAT_COSTCENTER">
+              <PropertyRef Name="ID_CC" />
+            </Principal>
+            <Dependent Role="PTONOM_CAT_CUENTAS">
+              <PropertyRef Name="ID_CC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PTONOM_CAT_CUENTAS_ID_LA">
+          <End Role="PTONOM_CAT_LEDGERACCOUNT" Type="Self.PTONOM_CAT_LEDGERACCOUNT" Multiplicity="1" />
+          <End Role="PTONOM_CAT_CUENTAS" Type="Self.PTONOM_CAT_CUENTAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PTONOM_CAT_LEDGERACCOUNT">
+              <PropertyRef Name="ID_LA" />
+            </Principal>
+            <Dependent Role="PTONOM_CAT_CUENTAS">
+              <PropertyRef Name="ID_LA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PTONOM_CAT_CUENTAS_ID_SC">
+          <End Role="PTONOM_CAT_SPENDCATEGORY" Type="Self.PTONOM_CAT_SPENDCATEGORY" Multiplicity="1" />
+          <End Role="PTONOM_CAT_CUENTAS" Type="Self.PTONOM_CAT_CUENTAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PTONOM_CAT_SPENDCATEGORY">
+              <PropertyRef Name="ID_SC" />
+            </Principal>
+            <Dependent Role="PTONOM_CAT_CUENTAS">
+              <PropertyRef Name="ID_SC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PTONOM_CAT_CUENTAS_IDCURRENCY">
+          <End Role="PTONOM_CAT_CURRENCY" Type="Self.PTONOM_CAT_CURRENCY" Multiplicity="1" />
+          <End Role="PTONOM_CAT_CUENTAS" Type="Self.PTONOM_CAT_CUENTAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PTONOM_CAT_CURRENCY">
+              <PropertyRef Name="IDCURRENCY" />
+            </Principal>
+            <Dependent Role="PTONOM_CAT_CUENTAS">
+              <PropertyRef Name="IDCURRENCY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PTONOM_CAT_CUENTAS_IDPROJECT">
+          <End Role="PTONOM_CAT_PROJECT" Type="Self.PTONOM_CAT_PROJECT" Multiplicity="0..1" />
+          <End Role="PTONOM_CAT_CUENTAS" Type="Self.PTONOM_CAT_CUENTAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PTONOM_CAT_PROJECT">
+              <PropertyRef Name="IDPROJECT" />
+            </Principal>
+            <Dependent Role="PTONOM_CAT_CUENTAS">
+              <PropertyRef Name="IDPROJECT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="UDLAPSIF_PTONOM_COSTCENTER_AGREGA_ACTUALIZA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="UDLAPSIF.PTONOM_COSTCENTER_AGREGA_ACTUALIZA">
+          <Parameter Name="ID_CC" Type="int" Mode="In" />
+          <Parameter Name="CC" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPCION" Type="varchar" Mode="In" />
+          <Parameter Name="NAMEUPDATE" Type="varchar" Mode="In" />
+          <Parameter Name="ESTATUS" Type="bit" Mode="In" />
+          <Parameter Name="IDUSER" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UDLAPSIF_PTONOM_COSTCENTER_BUSCARCC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="UDLAPSIF.PTONOM_COSTCENTER_BUSCARCC">
+          <Parameter Name="ID_CC" Type="int" Mode="In" />
+          <Parameter Name="CC" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPCION" Type="varchar" Mode="In" />
+          <Parameter Name="ESTATUS" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="UDLAPSIF_PTONOM_COSTCENTER_OBTENCC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="UDLAPSIF.PTONOM_COSTCENTER_OBTENCC" />
+        <Function Name="UDLAPSIF_PTONOM_CUENTAS_AGREGA_ACTUALIZA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="UDLAPSIF.PTONOM_CUENTAS_AGREGA_ACTUALIZA">
+          <Parameter Name="ID_CUENTA" Type="int" Mode="In" />
+          <Parameter Name="CUENTA" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPCION" Type="varchar" Mode="In" />
+          <Parameter Name="ID_CC" Type="int" Mode="In" />
+          <Parameter Name="ID_SC" Type="int" Mode="In" />
+          <Parameter Name="ID_LA" Type="int" Mode="In" />
+          <Parameter Name="IDCURRENCY" Type="smallint" Mode="In" />
+          <Parameter Name="IDTIPOCUENTA" Type="smallint" Mode="In" />
+          <Parameter Name="IDPROJECT" Type="smallint" Mode="In" />
+          <Parameter Name="CUENTAESPECIAL" Type="bit" Mode="In" />
+          <Parameter Name="VALES" Type="bit" Mode="In" />
+          <Parameter Name="ESTATUS" Type="bit" Mode="In" />
+          <Parameter Name="NAMEUPDATE" Type="varchar" Mode="In" />
+          <Parameter Name="IDUSER" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UDLAPSIF_PTONOM_CUENTAS_BUSCARC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="UDLAPSIF.PTONOM_CUENTAS_BUSCARC">
+          <Parameter Name="ID_CUENTA" Type="int" Mode="In" />
+          <Parameter Name="CUENTA" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPCION" Type="varchar" Mode="In" />
+          <Parameter Name="ESTATUS" Type="bit" Mode="In" />
+          <Parameter Name="CC" Type="varchar" Mode="In" />
+          <Parameter Name="ID_SC" Type="int" Mode="In" />
+          <Parameter Name="ID_LA" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDLAPSIF_PTONOM_CURRENCY_OBTENCURRENCY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="UDLAPSIF.PTONOM_CURRENCY_OBTENCURRENCY" />
+        <Function Name="UDLAPSIF_PTONOM_LEDGERACCOUNT_AGREGA_ACTUALIZA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="UDLAPSIF.PTONOM_LEDGERACCOUNT_AGREGA_ACTUALIZA">
+          <Parameter Name="ID_LA" Type="int" Mode="In" />
+          <Parameter Name="LA" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPCION" Type="varchar" Mode="In" />
+          <Parameter Name="NAMEUPDATE" Type="varchar" Mode="In" />
+          <Parameter Name="ESTATUS" Type="bit" Mode="In" />
+          <Parameter Name="IDUSER" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UDLAPSIF_PTONOM_LEDGERACCOUNT_BUSCARLA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="UDLAPSIF.PTONOM_LEDGERACCOUNT_BUSCARLA">
+          <Parameter Name="ID_LA" Type="int" Mode="In" />
+          <Parameter Name="LA" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPCION" Type="varchar" Mode="In" />
+          <Parameter Name="ESTATUS" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="UDLAPSIF_PTONOM_LEDGERACCOUNT_OBTENLA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="UDLAPSIF.PTONOM_LEDGERACCOUNT_OBTENLA" />
+        <Function Name="UDLAPSIF_PTONOM_PARAMETER_BUSCARP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="UDLAPSIF.PTONOM_PARAMETER_BUSCARP">
+          <Parameter Name="IDPARAM" Type="smallint" Mode="In" />
+        </Function>
+        <Function Name="UDLAPSIF_PTONOM_PARAMETERS_AGREGA_ACTUALIZA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="UDLAPSIF.PTONOM_PARAMETERS_AGREGA_ACTUALIZA">
+          <Parameter Name="IDPARAM" Type="smallint" Mode="In" />
+          <Parameter Name="DESCRIBEPARAM" Type="varchar" Mode="In" />
+          <Parameter Name="VALUEPARAM" Type="varchar" Mode="In" />
+          <Parameter Name="ESTATUS" Type="bit" Mode="In" />
+          <Parameter Name="NAMEUPDATE" Type="varchar" Mode="In" />
+          <Parameter Name="IDUSER" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UDLAPSIF_PTONOM_PARAMETERS_OBTENP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="UDLAPSIF.PTONOM_PARAMETERS_OBTENP" />
+        <Function Name="UDLAPSIF_PTONOM_PROJECT_AGREGA_ACTUALIZA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="UDLAPSIF.PTONOM_PROJECT_AGREGA_ACTUALIZA">
+          <Parameter Name="IDPROJECT" Type="smallint" Mode="In" />
+          <Parameter Name="PROJECT" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPCION" Type="varchar" Mode="In" />
+          <Parameter Name="NAMEUPDATE" Type="varchar" Mode="In" />
+          <Parameter Name="ESTATUS" Type="bit" Mode="In" />
+          <Parameter Name="IDUSER" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UDLAPSIF_PTONOM_PROJECT_BUSCARPR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="UDLAPSIF.PTONOM_PROJECT_BUSCARPR">
+          <Parameter Name="IDPROJECT" Type="smallint" Mode="In" />
+          <Parameter Name="PROJECT" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPCION" Type="varchar" Mode="In" />
+          <Parameter Name="ESTATUS" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="UDLAPSIF_PTONOM_PROJECT_OBTENPR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="UDLAPSIF.PTONOM_PROJECT_OBTENPR" />
+        <Function Name="UDLAPSIF_PTONOM_ROLES_OBTENROL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="UDLAPSIF.PTONOM_ROLES_OBTENROL" />
+        <Function Name="UDLAPSIF_PTONOM_SPENDCATEGORY_AGREGA_ACTUALIZA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="UDLAPSIF.PTONOM_SPENDCATEGORY_AGREGA_ACTUALIZA">
+          <Parameter Name="ID_SC" Type="int" Mode="In" />
+          <Parameter Name="SC" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPCION" Type="varchar" Mode="In" />
+          <Parameter Name="NAMEUPDATE" Type="varchar" Mode="In" />
+          <Parameter Name="ESTATUS" Type="bit" Mode="In" />
+          <Parameter Name="IDUSER" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UDLAPSIF_PTONOM_SPENDCATEGORY_BUSCARSC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="UDLAPSIF.PTONOM_SPENDCATEGORY_BUSCARSC">
+          <Parameter Name="ID_SC" Type="int" Mode="In" />
+          <Parameter Name="SC" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPCION" Type="varchar" Mode="In" />
+          <Parameter Name="ESTATUS" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="UDLAPSIF_PTONOM_SPENDCATEGORY_OBTENSC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="UDLAPSIF.PTONOM_SPENDCATEGORY_OBTENSC" />
+        <Function Name="UDLAPSIF_PTONOM_TIPOCUENTA_OBTENTC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="UDLAPSIF.PTONOM_TIPOCUENTA_OBTENTC" />
+        <Function Name="UDLAPSIF_PTONOM_USUARIOS_AGREGA_ACTUALIZA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="UDLAPSIF.PTONOM_USUARIOS_AGREGA_ACTUALIZA">
+          <Parameter Name="IDEMPLEADO" Type="varchar" Mode="In" />
+          <Parameter Name="NOMBRE" Type="varchar" Mode="In" />
+          <Parameter Name="EMAIL" Type="varchar" Mode="In" />
+          <Parameter Name="IDROL" Type="smallint" Mode="In" />
+          <Parameter Name="ESTATUS" Type="bit" Mode="In" />
+          <Parameter Name="NAMEUPDATE" Type="varchar" Mode="In" />
+          <Parameter Name="IDUSER" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UDLAPSIF_PTONOM_USUARIOS_BUSCARU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="UDLAPSIF.PTONOM_USUARIOS_BUSCARU">
+          <Parameter Name="IDEMPLEADO" Type="varchar" Mode="In" />
+          <Parameter Name="NOMBRE" Type="varchar" Mode="In" />
+          <Parameter Name="IDROL" Type="smallint" Mode="In" />
+          <Parameter Name="ESTATUS" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="UDLAPSIF_PTONOM_VALIDAACCESO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="UDLAPSIF.PTONOM_VALIDAACCESO">
+          <Parameter Name="EMPLEADO" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="UDLAPSIFModelStoreContainer">
+          <EntitySet Name="PTONOM_CAT_COSTCENTER" EntityType="Self.PTONOM_CAT_COSTCENTER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PTONOM_CAT_CUENTAS" EntityType="Self.PTONOM_CAT_CUENTAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PTONOM_CAT_CURRENCY" EntityType="Self.PTONOM_CAT_CURRENCY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PTONOM_CAT_LEDGERACCOUNT" EntityType="Self.PTONOM_CAT_LEDGERACCOUNT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PTONOM_CAT_PARAMETERS" EntityType="Self.PTONOM_CAT_PARAMETERS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PTONOM_CAT_PROJECT" EntityType="Self.PTONOM_CAT_PROJECT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PTONOM_CAT_SPENDCATEGORY" EntityType="Self.PTONOM_CAT_SPENDCATEGORY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="xNOMExcelRH" EntityType="Self.xNOMExcelRH" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_PTONOM_CAT_CUENTAS_ID_CC" Association="Self.FK_PTONOM_CAT_CUENTAS_ID_CC">
+            <End Role="PTONOM_CAT_COSTCENTER" EntitySet="PTONOM_CAT_COSTCENTER" />
+            <End Role="PTONOM_CAT_CUENTAS" EntitySet="PTONOM_CAT_CUENTAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PTONOM_CAT_CUENTAS_ID_LA" Association="Self.FK_PTONOM_CAT_CUENTAS_ID_LA">
+            <End Role="PTONOM_CAT_LEDGERACCOUNT" EntitySet="PTONOM_CAT_LEDGERACCOUNT" />
+            <End Role="PTONOM_CAT_CUENTAS" EntitySet="PTONOM_CAT_CUENTAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PTONOM_CAT_CUENTAS_ID_SC" Association="Self.FK_PTONOM_CAT_CUENTAS_ID_SC">
+            <End Role="PTONOM_CAT_SPENDCATEGORY" EntitySet="PTONOM_CAT_SPENDCATEGORY" />
+            <End Role="PTONOM_CAT_CUENTAS" EntitySet="PTONOM_CAT_CUENTAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PTONOM_CAT_CUENTAS_IDCURRENCY" Association="Self.FK_PTONOM_CAT_CUENTAS_IDCURRENCY">
+            <End Role="PTONOM_CAT_CURRENCY" EntitySet="PTONOM_CAT_CURRENCY" />
+            <End Role="PTONOM_CAT_CUENTAS" EntitySet="PTONOM_CAT_CUENTAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PTONOM_CAT_CUENTAS_IDPROJECT" Association="Self.FK_PTONOM_CAT_CUENTAS_IDPROJECT">
+            <End Role="PTONOM_CAT_PROJECT" EntitySet="PTONOM_CAT_PROJECT" />
+            <End Role="PTONOM_CAT_CUENTAS" EntitySet="PTONOM_CAT_CUENTAS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="UDLAPSIFModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="UDLAPSIFEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="UDLAPSIF_PTONOM_COSTCENTER_AGREGA_ACTUALIZA" ReturnType="Collection(UDLAPSIFModel.UDLAPSIF_PTONOM_COSTCENTER_AGREGA_ACTUALIZA_Result)">
+            <Parameter Name="ID_CC" Mode="In" Type="Int32" />
+            <Parameter Name="CC" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="NAMEUPDATE" Mode="In" Type="String" />
+            <Parameter Name="ESTATUS" Mode="In" Type="Boolean" />
+            <Parameter Name="IDUSER" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDLAPSIF_PTONOM_COSTCENTER_BUSCARCC" ReturnType="Collection(UDLAPSIFModel.UDLAPSIF_PTONOM_COSTCENTER_BUSCARCC_Result)">
+            <Parameter Name="ID_CC" Mode="In" Type="Int32" />
+            <Parameter Name="CC" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="ESTATUS" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="UDLAPSIF_PTONOM_COSTCENTER_OBTENCC" ReturnType="Collection(UDLAPSIFModel.UDLAPSIF_PTONOM_COSTCENTER_OBTENCC_Result)" />
+          <FunctionImport Name="UDLAPSIF_PTONOM_CURRENCY_OBTENCURRENCY" ReturnType="Collection(UDLAPSIFModel.UDLAPSIF_PTONOM_CURRENCY_OBTENCURRENCY_Result)" />
+          <FunctionImport Name="UDLAPSIF_PTONOM_LEDGERACCOUNT_AGREGA_ACTUALIZA" ReturnType="Collection(UDLAPSIFModel.UDLAPSIF_PTONOM_LEDGERACCOUNT_AGREGA_ACTUALIZA_Result)">
+            <Parameter Name="ID_LA" Mode="In" Type="Int32" />
+            <Parameter Name="LA" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="NAMEUPDATE" Mode="In" Type="String" />
+            <Parameter Name="ESTATUS" Mode="In" Type="Boolean" />
+            <Parameter Name="IDUSER" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDLAPSIF_PTONOM_LEDGERACCOUNT_BUSCARLA" ReturnType="Collection(UDLAPSIFModel.UDLAPSIF_PTONOM_LEDGERACCOUNT_BUSCARLA_Result)">
+            <Parameter Name="ID_LA" Mode="In" Type="Int32" />
+            <Parameter Name="LA" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="ESTATUS" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="UDLAPSIF_PTONOM_LEDGERACCOUNT_OBTENLA" ReturnType="Collection(UDLAPSIFModel.UDLAPSIF_PTONOM_LEDGERACCOUNT_OBTENLA_Result)" />
+          <FunctionImport Name="UDLAPSIF_PTONOM_ROLES_OBTENROL" ReturnType="Collection(UDLAPSIFModel.UDLAPSIF_PTONOM_ROLES_OBTENROL_Result)" />
+          <FunctionImport Name="UDLAPSIF_PTONOM_SPENDCATEGORY_AGREGA_ACTUALIZA" ReturnType="Collection(UDLAPSIFModel.UDLAPSIF_PTONOM_SPENDCATEGORY_AGREGA_ACTUALIZA_Result)">
+            <Parameter Name="ID_SC" Mode="In" Type="Int32" />
+            <Parameter Name="SC" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="NAMEUPDATE" Mode="In" Type="String" />
+            <Parameter Name="ESTATUS" Mode="In" Type="Boolean" />
+            <Parameter Name="IDUSER" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDLAPSIF_PTONOM_SPENDCATEGORY_BUSCARSC" ReturnType="Collection(UDLAPSIFModel.UDLAPSIF_PTONOM_SPENDCATEGORY_BUSCARSC_Result)">
+            <Parameter Name="ID_SC" Mode="In" Type="Int32" />
+            <Parameter Name="SC" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="ESTATUS" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="UDLAPSIF_PTONOM_SPENDCATEGORY_OBTENSC" ReturnType="Collection(UDLAPSIFModel.UDLAPSIF_PTONOM_SPENDCATEGORY_OBTENSC_Result)" />
+          <FunctionImport Name="UDLAPSIF_PTONOM_TIPOCUENTA_OBTENTC" ReturnType="Collection(UDLAPSIFModel.UDLAPSIF_PTONOM_TIPOCUENTA_OBTENTC_Result)" />
+          <FunctionImport Name="UDLAPSIF_PTONOM_USUARIOS_AGREGA_ACTUALIZA" ReturnType="Collection(UDLAPSIFModel.UDLAPSIF_PTONOM_USUARIOS_AGREGA_ACTUALIZA_Result)">
+            <Parameter Name="IDEMPLEADO" Mode="In" Type="String" />
+            <Parameter Name="NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="EMAIL" Mode="In" Type="String" />
+            <Parameter Name="IDROL" Mode="In" Type="Int16" />
+            <Parameter Name="ESTATUS" Mode="In" Type="Boolean" />
+            <Parameter Name="NAMEUPDATE" Mode="In" Type="String" />
+            <Parameter Name="IDUSER" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDLAPSIF_PTONOM_USUARIOS_BUSCARU" ReturnType="Collection(UDLAPSIFModel.UDLAPSIF_PTONOM_USUARIOS_BUSCARU_Result)">
+            <Parameter Name="IDEMPLEADO" Mode="In" Type="String" />
+            <Parameter Name="NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="IDROL" Mode="In" Type="Int16" />
+            <Parameter Name="ESTATUS" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="UDLAPSIF_PTONOM_VALIDAACCESO" ReturnType="Collection(UDLAPSIFModel.UDLAPSIF_PTONOM_VALIDAACCESO_Result)">
+          <Parameter Name="EMPLEADO" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDLAPSIF_PTONOM_PARAMETERS_AGREGA_ACTUALIZA" ReturnType="Collection(UDLAPSIFModel.UDLAPSIF_PTONOM_PARAMETERS_AGREGA_ACTUALIZA_Result)">
+            <Parameter Name="IDPARAM" Mode="In" Type="Int16" />
+            <Parameter Name="DESCRIBEPARAM" Mode="In" Type="String" />
+            <Parameter Name="VALUEPARAM" Mode="In" Type="String" />
+            <Parameter Name="ESTATUS" Mode="In" Type="Boolean" />
+            <Parameter Name="NAMEUPDATE" Mode="In" Type="String" />
+            <Parameter Name="IDUSER" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDLAPSIF_PTONOM_PARAMETERS_OBTENP" ReturnType="Collection(UDLAPSIFModel.UDLAPSIF_PTONOM_PARAMETERS_OBTENP_Result)" />
+          <FunctionImport Name="UDLAPSIF_PTONOM_PARAMETER_BUSCARP" ReturnType="Collection(UDLAPSIFModel.UDLAPSIF_PTONOM_PARAMETER_BUSCARP_Result)">
+          <Parameter Name="IDPARAM" Mode="In" Type="Int16" />
+          </FunctionImport>
+          <FunctionImport Name="UDLAPSIF_PTONOM_PROJECT_AGREGA_ACTUALIZA" ReturnType="Collection(UDLAPSIFModel.UDLAPSIF_PTONOM_PROJECT_AGREGA_ACTUALIZA_Result)">
+            <Parameter Name="IDPROJECT" Mode="In" Type="Int16" />
+            <Parameter Name="PROJECT" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="NAMEUPDATE" Mode="In" Type="String" />
+            <Parameter Name="ESTATUS" Mode="In" Type="Boolean" />
+            <Parameter Name="IDUSER" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDLAPSIF_PTONOM_PROJECT_BUSCARPR" ReturnType="Collection(UDLAPSIFModel.UDLAPSIF_PTONOM_PROJECT_BUSCARPR_Result)">
+            <Parameter Name="IDPROJECT" Mode="In" Type="Int16" />
+            <Parameter Name="PROJECT" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="ESTATUS" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="UDLAPSIF_PTONOM_PROJECT_OBTENPR" ReturnType="Collection(UDLAPSIFModel.UDLAPSIF_PTONOM_PROJECT_OBTENPR_Result)" />
+          <EntitySet Name="PTONOM_CAT_COSTCENTER" EntityType="UDLAPSIFModel.PTONOM_CAT_COSTCENTER" />
+          <EntitySet Name="PTONOM_CAT_CUENTAS" EntityType="UDLAPSIFModel.PTONOM_CAT_CUENTAS" />
+          <EntitySet Name="PTONOM_CAT_LEDGERACCOUNT" EntityType="UDLAPSIFModel.PTONOM_CAT_LEDGERACCOUNT" />
+          <EntitySet Name="PTONOM_CAT_SPENDCATEGORY" EntityType="UDLAPSIFModel.PTONOM_CAT_SPENDCATEGORY" />
+          <AssociationSet Name="FK_PTONOM_CAT_CUENTAS_ID_CC" Association="UDLAPSIFModel.FK_PTONOM_CAT_CUENTAS_ID_CC">
+            <End Role="PTONOM_CAT_COSTCENTER" EntitySet="PTONOM_CAT_COSTCENTER" />
+            <End Role="PTONOM_CAT_CUENTAS" EntitySet="PTONOM_CAT_CUENTAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PTONOM_CAT_CUENTAS_ID_LA" Association="UDLAPSIFModel.FK_PTONOM_CAT_CUENTAS_ID_LA">
+            <End Role="PTONOM_CAT_LEDGERACCOUNT" EntitySet="PTONOM_CAT_LEDGERACCOUNT" />
+            <End Role="PTONOM_CAT_CUENTAS" EntitySet="PTONOM_CAT_CUENTAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PTONOM_CAT_CUENTAS_ID_SC" Association="UDLAPSIFModel.FK_PTONOM_CAT_CUENTAS_ID_SC">
+            <End Role="PTONOM_CAT_SPENDCATEGORY" EntitySet="PTONOM_CAT_SPENDCATEGORY" />
+            <End Role="PTONOM_CAT_CUENTAS" EntitySet="PTONOM_CAT_CUENTAS" />
+          </AssociationSet>
+          <EntitySet Name="PTONOM_CAT_PROJECT" EntityType="UDLAPSIFModel.PTONOM_CAT_PROJECT" />
+          <AssociationSet Name="FK_PTONOM_CAT_CUENTAS_IDPROJECT" Association="UDLAPSIFModel.FK_PTONOM_CAT_CUENTAS_IDPROJECT">
+            <End Role="PTONOM_CAT_PROJECT" EntitySet="PTONOM_CAT_PROJECT" />
+            <End Role="PTONOM_CAT_CUENTAS" EntitySet="PTONOM_CAT_CUENTAS" />
+          </AssociationSet>
+          <EntitySet Name="PTONOM_CAT_CURRENCY" EntityType="UDLAPSIFModel.PTONOM_CAT_CURRENCY" />
+          <AssociationSet Name="FK_PTONOM_CAT_CUENTAS_IDCURRENCY" Association="UDLAPSIFModel.FK_PTONOM_CAT_CUENTAS_IDCURRENCY">
+            <End Role="PTONOM_CAT_CURRENCY" EntitySet="PTONOM_CAT_CURRENCY" />
+            <End Role="PTONOM_CAT_CUENTAS" EntitySet="PTONOM_CAT_CUENTAS" />
+          </AssociationSet>
+          <EntitySet Name="PTONOM_CAT_PARAMETERS" EntityType="UDLAPSIFModel.PTONOM_CAT_PARAMETERS" />
+          <FunctionImport Name="UDLAPSIF_PTONOM_CUENTAS_AGREGA_ACTUALIZA" ReturnType="Collection(UDLAPSIFModel.UDLAPSIF_PTONOM_CUENTAS_AGREGA_ACTUALIZA_Result)">
+            <Parameter Name="ID_CUENTA" Mode="In" Type="Int32" />
+            <Parameter Name="CUENTA" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="ID_CC" Mode="In" Type="Int32" />
+            <Parameter Name="ID_SC" Mode="In" Type="Int32" />
+            <Parameter Name="ID_LA" Mode="In" Type="Int32" />
+            <Parameter Name="IDCURRENCY" Mode="In" Type="Int16" />
+            <Parameter Name="IDTIPOCUENTA" Mode="In" Type="Int16" />
+            <Parameter Name="IDPROJECT" Mode="In" Type="Int16" />
+            <Parameter Name="CUENTAESPECIAL" Mode="In" Type="Boolean" />
+            <Parameter Name="VALES" Mode="In" Type="Boolean" />
+            <Parameter Name="ESTATUS" Mode="In" Type="Boolean" />
+            <Parameter Name="NAMEUPDATE" Mode="In" Type="String" />
+            <Parameter Name="IDUSER" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDLAPSIF_PTONOM_CUENTAS_BUSCARC" ReturnType="Collection(UDLAPSIFModel.UDLAPSIF_PTONOM_CUENTAS_BUSCARC_Result)">
+            <Parameter Name="ID_CUENTA" Mode="In" Type="Int32" />
+            <Parameter Name="CUENTA" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="ESTATUS" Mode="In" Type="Boolean" />
+            <Parameter Name="CC" Mode="In" Type="String" />
+            <Parameter Name="ID_SC" Mode="In" Type="Int32" />
+            <Parameter Name="ID_LA" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="xNOMExcelRH" EntityType="UDLAPSIFModel.xNOMExcelRH" />
+        </EntityContainer>
+        <ComplexType Name="UDLAPSIF_PTONOM_COSTCENTER_AGREGA_ACTUALIZA_Result">
+          <Property Type="Int32" Name="CLAVEERROR" Nullable="true" />
+          <Property Type="String" Name="DESCRIBEERROR" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="UDLAPSIF_PTONOM_COSTCENTER_BUSCARCC_Result">
+          <Property Type="Int32" Name="ID_CC" Nullable="false" />
+          <Property Type="String" Name="NUM" Nullable="true" />
+          <Property Type="String" Name="CC" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="DESCRIPCION" Nullable="false" MaxLength="250" />
+          <Property Type="Boolean" Name="ESTATUS" Nullable="false" />
+          <Property Type="String" Name="NAMEUPDATE" Nullable="false" MaxLength="250" />
+          <Property Type="DateTime" Name="FECHAUPDATE" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="UDLAPSIF_PTONOM_COSTCENTER_OBTENCC_Result">
+          <Property Type="Int32" Name="ID_CC" Nullable="false" />
+          <Property Type="String" Name="CC" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="DESCRIPCION" Nullable="false" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="UDLAPSIF_PTONOM_CURRENCY_OBTENCURRENCY_Result">
+          <Property Type="Int16" Name="IDCURRENCY" Nullable="false" />
+          <Property Type="String" Name="COUNTRY" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="CURRENCY" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="CODE" Nullable="true" MaxLength="4" />
+        </ComplexType>
+        <ComplexType Name="UDLAPSIF_PTONOM_LEDGERACCOUNT_AGREGA_ACTUALIZA_Result">
+          <Property Type="Int32" Name="CLAVEERROR" Nullable="true" />
+          <Property Type="String" Name="DESCRIBEERROR" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="UDLAPSIF_PTONOM_LEDGERACCOUNT_BUSCARLA_Result">
+          <Property Type="Int32" Name="ID_LA" Nullable="false" />
+          <Property Type="String" Name="NUM" Nullable="true" />
+          <Property Type="String" Name="LA" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="DESCRIPCION" Nullable="false" MaxLength="250" />
+          <Property Type="Boolean" Name="ESTATUS" Nullable="false" />
+          <Property Type="String" Name="NAMEUPDATE" Nullable="false" MaxLength="250" />
+          <Property Type="DateTime" Name="FECHAUPDATE" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="UDLAPSIF_PTONOM_LEDGERACCOUNT_OBTENLA_Result">
+          <Property Type="Int32" Name="ID_LA" Nullable="false" />
+          <Property Type="String" Name="LA" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="DESCRIPCION" Nullable="false" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="UDLAPSIF_PTONOM_ROLES_OBTENROL_Result">
+          <Property Type="Int16" Name="IDROL" Nullable="false" />
+          <Property Type="String" Name="NOMBREROL" Nullable="false" MaxLength="150" />
+        </ComplexType>
+        <ComplexType Name="UDLAPSIF_PTONOM_SPENDCATEGORY_AGREGA_ACTUALIZA_Result">
+          <Property Type="Int32" Name="CLAVEERROR" Nullable="true" />
+          <Property Type="String" Name="DESCRIBEERROR" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="UDLAPSIF_PTONOM_SPENDCATEGORY_BUSCARSC_Result">
+          <Property Type="Int32" Name="ID_SC" Nullable="false" />
+          <Property Type="String" Name="NUM" Nullable="true" />
+          <Property Type="String" Name="SC" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="DESCRIPCION" Nullable="false" MaxLength="250" />
+          <Property Type="Boolean" Name="ESTATUS" Nullable="false" />
+          <Property Type="String" Name="NAMEUPDATE" Nullable="false" MaxLength="250" />
+          <Property Type="DateTime" Name="FECHAUPDATE" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="UDLAPSIF_PTONOM_SPENDCATEGORY_OBTENSC_Result">
+          <Property Type="Int32" Name="ID_SC" Nullable="false" />
+          <Property Type="String" Name="SC" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="DESCRIPCION" Nullable="false" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="UDLAPSIF_PTONOM_TIPOCUENTA_OBTENTC_Result">
+          <Property Type="Int16" Name="IDTIPOCUENTA" Nullable="false" />
+          <Property Type="String" Name="TIPO" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="DESCRIPCION" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="CODE" Nullable="true" MaxLength="5" />
+        </ComplexType>
+        <ComplexType Name="UDLAPSIF_PTONOM_USUARIOS_AGREGA_ACTUALIZA_Result">
+          <Property Type="Int32" Name="CLAVEERROR" Nullable="true" />
+          <Property Type="String" Name="DESCRIBEERROR" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="UDLAPSIF_PTONOM_USUARIOS_BUSCARU_Result">
+          <Property Type="String" Name="NUM" Nullable="true" />
+          <Property Type="Int16" Name="IDROL" Nullable="false" />
+          <Property Type="String" Name="NOMBREROL" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="IDEMPLEADO" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="EMAIL" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="NAMEUPDATE" Nullable="false" MaxLength="250" />
+          <Property Type="DateTime" Name="FECHAUPDATE" Nullable="false" Precision="23" />
+          <Property Type="Boolean" Name="ESTATUS" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="UDLAPSIF_PTONOM_VALIDAACCESO_Result">
+          <Property Type="Int16" Name="IDROL" Nullable="false" />
+          <Property Type="String" Name="NOMBREROL" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="IDEMPLEADO" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="UDLAPSIF_PTONOM_PARAMETERS_AGREGA_ACTUALIZA_Result">
+          <Property Type="Int32" Name="CLAVEERROR" Nullable="true" />
+          <Property Type="String" Name="DESCRIBEERROR" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="UDLAPSIF_PTONOM_PARAMETERS_OBTENP_Result">
+          <Property Type="Int16" Name="IDPARAM" Nullable="false" />
+          <Property Type="String" Name="DESCRIBEPARAM" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="VALUEPARAM" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="NAMEUPDATE" Nullable="false" MaxLength="250" />
+          <Property Type="DateTime" Name="FECHAUPDATE" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="UDLAPSIF_PTONOM_PARAMETER_BUSCARP_Result">
+          <Property Type="Int16" Name="IDPARAM" Nullable="false" />
+          <Property Type="String" Name="DESCRIBEPARAM" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="VALUEPARAM" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="NAMEUPDATE" Nullable="false" MaxLength="250" />
+          <Property Type="DateTime" Name="FECHAUPDATE" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="UDLAPSIF_PTONOM_PROJECT_AGREGA_ACTUALIZA_Result">
+          <Property Type="Int32" Name="CLAVEERROR" Nullable="true" />
+          <Property Type="String" Name="DESCRIBEERROR" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="UDLAPSIF_PTONOM_PROJECT_BUSCARPR_Result">
+          <Property Type="Int16" Name="IDPROJECT" Nullable="false" />
+          <Property Type="String" Name="NUM" Nullable="true" />
+          <Property Type="String" Name="PROJECT" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="DESCRIPCION" Nullable="false" MaxLength="250" />
+          <Property Type="Boolean" Name="ESTATUS" Nullable="false" />
+          <Property Type="String" Name="NAMEUPDATE" Nullable="false" MaxLength="250" />
+          <Property Type="DateTime" Name="FECHAUPDATE" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="UDLAPSIF_PTONOM_PROJECT_OBTENPR_Result">
+          <Property Type="Int16" Name="IDPROJECT" Nullable="false" />
+          <Property Type="String" Name="PROJECT" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="DESCRIPCION" Nullable="false" MaxLength="250" />
+        </ComplexType>
+        <EntityType Name="PTONOM_CAT_COSTCENTER">
+          <Key>
+            <PropertyRef Name="ID_CC" />
+          </Key>
+          <Property Name="ID_CC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CC" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="NAMEUPDATE" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ESTATUS" Type="Boolean" Nullable="false" />
+          <Property Name="create_user" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="create_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="update_user" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="update_time" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="PTONOM_CAT_CUENTAS" Relationship="UDLAPSIFModel.FK_PTONOM_CAT_CUENTAS_ID_CC" FromRole="PTONOM_CAT_COSTCENTER" ToRole="PTONOM_CAT_CUENTAS" />
+        </EntityType>
+        <EntityType Name="PTONOM_CAT_CUENTAS">
+          <Key>
+            <PropertyRef Name="ID_CUENTA" />
+          </Key>
+          <Property Name="ID_CUENTA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CUENTA" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="NAMEUPDATE" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ESTATUS" Type="Boolean" Nullable="false" />
+          <Property Name="ID_CC" Type="Int32" Nullable="false" />
+          <Property Name="ID_LA" Type="Int32" Nullable="false" />
+          <Property Name="ID_SC" Type="Int32" Nullable="false" />
+          <Property Name="IDCURRENCY" Type="Int16" Nullable="false" />
+          <Property Name="IDPROJECT" Type="Int16" />
+          <Property Name="VALES" Type="Boolean" Nullable="false" />
+          <Property Name="IDTIPOCUENTA" Type="Int16" Nullable="false" />
+          <Property Name="create_user" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="create_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="update_user" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="update_time" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="PTONOM_CAT_COSTCENTER" Relationship="UDLAPSIFModel.FK_PTONOM_CAT_CUENTAS_ID_CC" FromRole="PTONOM_CAT_CUENTAS" ToRole="PTONOM_CAT_COSTCENTER" />
+          <NavigationProperty Name="PTONOM_CAT_LEDGERACCOUNT" Relationship="UDLAPSIFModel.FK_PTONOM_CAT_CUENTAS_ID_LA" FromRole="PTONOM_CAT_CUENTAS" ToRole="PTONOM_CAT_LEDGERACCOUNT" />
+          <NavigationProperty Name="PTONOM_CAT_SPENDCATEGORY" Relationship="UDLAPSIFModel.FK_PTONOM_CAT_CUENTAS_ID_SC" FromRole="PTONOM_CAT_CUENTAS" ToRole="PTONOM_CAT_SPENDCATEGORY" />
+          <NavigationProperty Name="PTONOM_CAT_PROJECT" Relationship="UDLAPSIFModel.FK_PTONOM_CAT_CUENTAS_IDPROJECT" FromRole="PTONOM_CAT_CUENTAS" ToRole="PTONOM_CAT_PROJECT" />
+          <NavigationProperty Name="PTONOM_CAT_CURRENCY" Relationship="UDLAPSIFModel.FK_PTONOM_CAT_CUENTAS_IDCURRENCY" FromRole="PTONOM_CAT_CUENTAS" ToRole="PTONOM_CAT_CURRENCY" />
+          <Property Name="CUENTAESPECIAL" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PTONOM_CAT_LEDGERACCOUNT">
+          <Key>
+            <PropertyRef Name="ID_LA" />
+          </Key>
+          <Property Name="ID_LA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LA" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="NAMEUPDATE" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ESTATUS" Type="Boolean" Nullable="false" />
+          <Property Name="create_user" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="create_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="update_user" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="update_time" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="PTONOM_CAT_CUENTAS" Relationship="UDLAPSIFModel.FK_PTONOM_CAT_CUENTAS_ID_LA" FromRole="PTONOM_CAT_LEDGERACCOUNT" ToRole="PTONOM_CAT_CUENTAS" />
+        </EntityType>
+        <EntityType Name="PTONOM_CAT_SPENDCATEGORY">
+          <Key>
+            <PropertyRef Name="ID_SC" />
+          </Key>
+          <Property Name="ID_SC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SC" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="NAMEUPDATE" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ESTATUS" Type="Boolean" Nullable="false" />
+          <Property Name="create_user" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="create_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="update_user" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="update_time" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="PTONOM_CAT_CUENTAS" Relationship="UDLAPSIFModel.FK_PTONOM_CAT_CUENTAS_ID_SC" FromRole="PTONOM_CAT_SPENDCATEGORY" ToRole="PTONOM_CAT_CUENTAS" />
+        </EntityType>
+        <Association Name="FK_PTONOM_CAT_CUENTAS_ID_CC">
+          <End Type="UDLAPSIFModel.PTONOM_CAT_COSTCENTER" Role="PTONOM_CAT_COSTCENTER" Multiplicity="1" />
+          <End Type="UDLAPSIFModel.PTONOM_CAT_CUENTAS" Role="PTONOM_CAT_CUENTAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PTONOM_CAT_COSTCENTER">
+              <PropertyRef Name="ID_CC" />
+            </Principal>
+            <Dependent Role="PTONOM_CAT_CUENTAS">
+              <PropertyRef Name="ID_CC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PTONOM_CAT_CUENTAS_ID_LA">
+          <End Type="UDLAPSIFModel.PTONOM_CAT_LEDGERACCOUNT" Role="PTONOM_CAT_LEDGERACCOUNT" Multiplicity="1" />
+          <End Type="UDLAPSIFModel.PTONOM_CAT_CUENTAS" Role="PTONOM_CAT_CUENTAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PTONOM_CAT_LEDGERACCOUNT">
+              <PropertyRef Name="ID_LA" />
+            </Principal>
+            <Dependent Role="PTONOM_CAT_CUENTAS">
+              <PropertyRef Name="ID_LA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PTONOM_CAT_CUENTAS_ID_SC">
+          <End Type="UDLAPSIFModel.PTONOM_CAT_SPENDCATEGORY" Role="PTONOM_CAT_SPENDCATEGORY" Multiplicity="1" />
+          <End Type="UDLAPSIFModel.PTONOM_CAT_CUENTAS" Role="PTONOM_CAT_CUENTAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PTONOM_CAT_SPENDCATEGORY">
+              <PropertyRef Name="ID_SC" />
+            </Principal>
+            <Dependent Role="PTONOM_CAT_CUENTAS">
+              <PropertyRef Name="ID_SC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PTONOM_CAT_PROJECT">
+          <Key>
+            <PropertyRef Name="IDPROJECT" />
+          </Key>
+          <Property Name="IDPROJECT" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PROJECT" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="NAMEUPDATE" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ESTATUS" Type="Boolean" Nullable="false" />
+          <Property Name="create_user" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="create_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="update_user" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="update_time" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="PTONOM_CAT_CUENTAS" Relationship="UDLAPSIFModel.FK_PTONOM_CAT_CUENTAS_IDPROJECT" FromRole="PTONOM_CAT_PROJECT" ToRole="PTONOM_CAT_CUENTAS" />
+        </EntityType>
+        <Association Name="FK_PTONOM_CAT_CUENTAS_IDPROJECT">
+          <End Type="UDLAPSIFModel.PTONOM_CAT_PROJECT" Role="PTONOM_CAT_PROJECT" Multiplicity="0..1" />
+          <End Type="UDLAPSIFModel.PTONOM_CAT_CUENTAS" Role="PTONOM_CAT_CUENTAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PTONOM_CAT_PROJECT">
+              <PropertyRef Name="IDPROJECT" />
+            </Principal>
+            <Dependent Role="PTONOM_CAT_CUENTAS">
+              <PropertyRef Name="IDPROJECT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PTONOM_CAT_CURRENCY">
+          <Key>
+            <PropertyRef Name="IDCURRENCY" />
+          </Key>
+          <Property Name="IDCURRENCY" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COUNTRY" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CURRENCY" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CODE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="MINOR_UNIT" Type="Int16" />
+          <Property Name="SYMBOL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ESTATUS" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PTONOM_CAT_CUENTAS" Relationship="UDLAPSIFModel.FK_PTONOM_CAT_CUENTAS_IDCURRENCY" FromRole="PTONOM_CAT_CURRENCY" ToRole="PTONOM_CAT_CUENTAS" />
+        </EntityType>
+        <Association Name="FK_PTONOM_CAT_CUENTAS_IDCURRENCY">
+          <End Type="UDLAPSIFModel.PTONOM_CAT_CURRENCY" Role="PTONOM_CAT_CURRENCY" Multiplicity="1" />
+          <End Type="UDLAPSIFModel.PTONOM_CAT_CUENTAS" Role="PTONOM_CAT_CUENTAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PTONOM_CAT_CURRENCY">
+              <PropertyRef Name="IDCURRENCY" />
+            </Principal>
+            <Dependent Role="PTONOM_CAT_CUENTAS">
+              <PropertyRef Name="IDCURRENCY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PTONOM_CAT_PARAMETERS">
+          <Key>
+            <PropertyRef Name="IDPARAM" />
+          </Key>
+          <Property Name="IDPARAM" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRIBEPARAM" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="VALUEPARAM" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="ESTATUS" Type="Boolean" Nullable="false" />
+          <Property Name="NAMEUPDATE" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="create_user" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="create_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="update_user" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="update_time" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <ComplexType Name="UDLAPSIF_PTONOM_CUENTAS_AGREGA_ACTUALIZA_Result">
+          <Property Type="Int32" Name="CLAVEERROR" Nullable="true" />
+          <Property Type="String" Name="DESCRIBEERROR" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="UDLAPSIF_PTONOM_CUENTAS_BUSCARC_Result">
+          <Property Type="Int32" Name="ID_CUENTA" Nullable="false" />
+          <Property Type="String" Name="NUM" Nullable="true" />
+          <Property Type="String" Name="CUENTA" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="DESCRIPCION" Nullable="false" MaxLength="250" />
+          <Property Type="Int32" Name="ID_CC" Nullable="false" />
+          <Property Type="String" Name="COSTCENTER" Nullable="false" MaxLength="10" />
+          <Property Type="Int32" Name="ID_LA" Nullable="false" />
+          <Property Type="String" Name="LEDGERACCOUNT" Nullable="false" MaxLength="150" />
+          <Property Type="Int32" Name="ID_SC" Nullable="false" />
+          <Property Type="String" Name="SPENDCATEGORY" Nullable="false" MaxLength="150" />
+          <Property Type="Int16" Name="IDCURRENCY" Nullable="false" />
+          <Property Type="String" Name="CODECURRENCY" Nullable="true" MaxLength="4" />
+          <Property Type="Int16" Name="IDTIPOCUENTA" Nullable="false" />
+          <Property Type="String" Name="TIPOCUENTA" Nullable="true" MaxLength="10" />
+          <Property Type="Int16" Name="IDPROJECT" Nullable="true" />
+          <Property Type="String" Name="PROJECT" Nullable="true" MaxLength="150" />
+          <Property Type="Boolean" Name="CUENTAESPECIAL" Nullable="false" />
+          <Property Type="Boolean" Name="VALES" Nullable="false" />
+          <Property Type="Boolean" Name="ESTATUS" Nullable="false" />
+          <Property Type="String" Name="NAMEUPDATE" Nullable="false" MaxLength="250" />
+          <Property Type="DateTime" Name="FECHAUPDATE" Nullable="false" Precision="23" />
+        </ComplexType>
+        <EntityType Name="xNOMExcelRH">
+          <Key>
+            <PropertyRef Name="JRNLIDX" />
+          </Key>
+          <Property Name="BACHNUMB" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ACTINDX" Type="Int32" Nullable="false" />
+          <Property Name="ACTNUMBER" Type="String" Nullable="false" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="CRDTAMT" Type="Decimal" Nullable="false" Precision="19" Scale="2" />
+          <Property Name="CURNCYID" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="CURRNIDX" Type="Int32" Nullable="false" />
+          <Property Name="CURYCRDTAMT" Type="Decimal" Nullable="false" Precision="19" Scale="2" />
+          <Property Name="CURYDEBITAMT" Type="Decimal" Nullable="false" Precision="19" Scale="2" />
+          <Property Name="DEBITAMT" Type="Decimal" Nullable="false" Precision="19" Scale="2" />
+          <Property Name="DSCRIPTN" Type="String" Nullable="false" MaxLength="31" FixedLength="false" Unicode="false" />
+          <Property Name="EXCHDATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="REFRENCE" Type="String" Nullable="false" MaxLength="31" FixedLength="false" Unicode="false" />
+          <Property Name="SOURCDOC" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="TRXDATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="XCHGRATE" Type="Decimal" Nullable="false" Precision="19" Scale="7" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <Property Name="LoginName" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ReadDate" Type="DateTime" Precision="3" />
+          <Property Name="isRead" Type="Boolean" />
+          <Property Name="JRNLIDX" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CtrlPPTO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="UDLAPSIFModelStoreContainer" CdmEntityContainer="UDLAPSIFEntities" >
+          <FunctionImportMapping FunctionImportName="UDLAPSIF_PTONOM_COSTCENTER_AGREGA_ACTUALIZA" FunctionName="UDLAPSIFModel.Store.UDLAPSIF_PTONOM_COSTCENTER_AGREGA_ACTUALIZA">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="UDLAPSIFModel.UDLAPSIF_PTONOM_COSTCENTER_AGREGA_ACTUALIZA_Result">
+                <ScalarProperty Name="CLAVEERROR" ColumnName="CLAVEERROR" />
+                <ScalarProperty Name="DESCRIBEERROR" ColumnName="DESCRIBEERROR" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDLAPSIF_PTONOM_COSTCENTER_BUSCARCC" FunctionName="UDLAPSIFModel.Store.UDLAPSIF_PTONOM_COSTCENTER_BUSCARCC">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="UDLAPSIFModel.UDLAPSIF_PTONOM_COSTCENTER_BUSCARCC_Result">
+                <ScalarProperty Name="ID_CC" ColumnName="ID_CC" />
+                <ScalarProperty Name="NUM" ColumnName="NUM" />
+                <ScalarProperty Name="CC" ColumnName="CC" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="ESTATUS" ColumnName="ESTATUS" />
+                <ScalarProperty Name="NAMEUPDATE" ColumnName="NAMEUPDATE" />
+                <ScalarProperty Name="FECHAUPDATE" ColumnName="FECHAUPDATE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDLAPSIF_PTONOM_COSTCENTER_OBTENCC" FunctionName="UDLAPSIFModel.Store.UDLAPSIF_PTONOM_COSTCENTER_OBTENCC">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="UDLAPSIFModel.UDLAPSIF_PTONOM_COSTCENTER_OBTENCC_Result">
+                <ScalarProperty Name="ID_CC" ColumnName="ID_CC" />
+                <ScalarProperty Name="CC" ColumnName="CC" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDLAPSIF_PTONOM_CURRENCY_OBTENCURRENCY" FunctionName="UDLAPSIFModel.Store.UDLAPSIF_PTONOM_CURRENCY_OBTENCURRENCY">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="UDLAPSIFModel.UDLAPSIF_PTONOM_CURRENCY_OBTENCURRENCY_Result">
+                <ScalarProperty Name="IDCURRENCY" ColumnName="IDCURRENCY" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="CURRENCY" ColumnName="CURRENCY" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDLAPSIF_PTONOM_LEDGERACCOUNT_AGREGA_ACTUALIZA" FunctionName="UDLAPSIFModel.Store.UDLAPSIF_PTONOM_LEDGERACCOUNT_AGREGA_ACTUALIZA">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="UDLAPSIFModel.UDLAPSIF_PTONOM_LEDGERACCOUNT_AGREGA_ACTUALIZA_Result">
+                <ScalarProperty Name="CLAVEERROR" ColumnName="CLAVEERROR" />
+                <ScalarProperty Name="DESCRIBEERROR" ColumnName="DESCRIBEERROR" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDLAPSIF_PTONOM_LEDGERACCOUNT_BUSCARLA" FunctionName="UDLAPSIFModel.Store.UDLAPSIF_PTONOM_LEDGERACCOUNT_BUSCARLA">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="UDLAPSIFModel.UDLAPSIF_PTONOM_LEDGERACCOUNT_BUSCARLA_Result">
+                <ScalarProperty Name="ID_LA" ColumnName="ID_LA" />
+                <ScalarProperty Name="NUM" ColumnName="NUM" />
+                <ScalarProperty Name="LA" ColumnName="LA" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="ESTATUS" ColumnName="ESTATUS" />
+                <ScalarProperty Name="NAMEUPDATE" ColumnName="NAMEUPDATE" />
+                <ScalarProperty Name="FECHAUPDATE" ColumnName="FECHAUPDATE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDLAPSIF_PTONOM_LEDGERACCOUNT_OBTENLA" FunctionName="UDLAPSIFModel.Store.UDLAPSIF_PTONOM_LEDGERACCOUNT_OBTENLA">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="UDLAPSIFModel.UDLAPSIF_PTONOM_LEDGERACCOUNT_OBTENLA_Result">
+                <ScalarProperty Name="ID_LA" ColumnName="ID_LA" />
+                <ScalarProperty Name="LA" ColumnName="LA" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDLAPSIF_PTONOM_ROLES_OBTENROL" FunctionName="UDLAPSIFModel.Store.UDLAPSIF_PTONOM_ROLES_OBTENROL">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="UDLAPSIFModel.UDLAPSIF_PTONOM_ROLES_OBTENROL_Result">
+                <ScalarProperty Name="IDROL" ColumnName="IDROL" />
+                <ScalarProperty Name="NOMBREROL" ColumnName="NOMBREROL" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDLAPSIF_PTONOM_SPENDCATEGORY_AGREGA_ACTUALIZA" FunctionName="UDLAPSIFModel.Store.UDLAPSIF_PTONOM_SPENDCATEGORY_AGREGA_ACTUALIZA">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="UDLAPSIFModel.UDLAPSIF_PTONOM_SPENDCATEGORY_AGREGA_ACTUALIZA_Result">
+                <ScalarProperty Name="CLAVEERROR" ColumnName="CLAVEERROR" />
+                <ScalarProperty Name="DESCRIBEERROR" ColumnName="DESCRIBEERROR" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDLAPSIF_PTONOM_SPENDCATEGORY_BUSCARSC" FunctionName="UDLAPSIFModel.Store.UDLAPSIF_PTONOM_SPENDCATEGORY_BUSCARSC">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="UDLAPSIFModel.UDLAPSIF_PTONOM_SPENDCATEGORY_BUSCARSC_Result">
+                <ScalarProperty Name="ID_SC" ColumnName="ID_SC" />
+                <ScalarProperty Name="NUM" ColumnName="NUM" />
+                <ScalarProperty Name="SC" ColumnName="SC" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="ESTATUS" ColumnName="ESTATUS" />
+                <ScalarProperty Name="NAMEUPDATE" ColumnName="NAMEUPDATE" />
+                <ScalarProperty Name="FECHAUPDATE" ColumnName="FECHAUPDATE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDLAPSIF_PTONOM_SPENDCATEGORY_OBTENSC" FunctionName="UDLAPSIFModel.Store.UDLAPSIF_PTONOM_SPENDCATEGORY_OBTENSC">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="UDLAPSIFModel.UDLAPSIF_PTONOM_SPENDCATEGORY_OBTENSC_Result">
+                <ScalarProperty Name="ID_SC" ColumnName="ID_SC" />
+                <ScalarProperty Name="SC" ColumnName="SC" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDLAPSIF_PTONOM_TIPOCUENTA_OBTENTC" FunctionName="UDLAPSIFModel.Store.UDLAPSIF_PTONOM_TIPOCUENTA_OBTENTC">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="UDLAPSIFModel.UDLAPSIF_PTONOM_TIPOCUENTA_OBTENTC_Result">
+                <ScalarProperty Name="IDTIPOCUENTA" ColumnName="IDTIPOCUENTA" />
+                <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDLAPSIF_PTONOM_USUARIOS_AGREGA_ACTUALIZA" FunctionName="UDLAPSIFModel.Store.UDLAPSIF_PTONOM_USUARIOS_AGREGA_ACTUALIZA">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="UDLAPSIFModel.UDLAPSIF_PTONOM_USUARIOS_AGREGA_ACTUALIZA_Result">
+                <ScalarProperty Name="CLAVEERROR" ColumnName="CLAVEERROR" />
+                <ScalarProperty Name="DESCRIBEERROR" ColumnName="DESCRIBEERROR" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDLAPSIF_PTONOM_USUARIOS_BUSCARU" FunctionName="UDLAPSIFModel.Store.UDLAPSIF_PTONOM_USUARIOS_BUSCARU">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="UDLAPSIFModel.UDLAPSIF_PTONOM_USUARIOS_BUSCARU_Result">
+                <ScalarProperty Name="NUM" ColumnName="NUM" />
+                <ScalarProperty Name="IDROL" ColumnName="IDROL" />
+                <ScalarProperty Name="NOMBREROL" ColumnName="NOMBREROL" />
+                <ScalarProperty Name="IDEMPLEADO" ColumnName="IDEMPLEADO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="NAMEUPDATE" ColumnName="NAMEUPDATE" />
+                <ScalarProperty Name="FECHAUPDATE" ColumnName="FECHAUPDATE" />
+                <ScalarProperty Name="ESTATUS" ColumnName="ESTATUS" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDLAPSIF_PTONOM_VALIDAACCESO" FunctionName="UDLAPSIFModel.Store.UDLAPSIF_PTONOM_VALIDAACCESO">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="UDLAPSIFModel.UDLAPSIF_PTONOM_VALIDAACCESO_Result">
+                <ScalarProperty Name="IDROL" ColumnName="IDROL" />
+                <ScalarProperty Name="NOMBREROL" ColumnName="NOMBREROL" />
+                <ScalarProperty Name="IDEMPLEADO" ColumnName="IDEMPLEADO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDLAPSIF_PTONOM_PARAMETERS_AGREGA_ACTUALIZA" FunctionName="UDLAPSIFModel.Store.UDLAPSIF_PTONOM_PARAMETERS_AGREGA_ACTUALIZA">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="UDLAPSIFModel.UDLAPSIF_PTONOM_PARAMETERS_AGREGA_ACTUALIZA_Result">
+                <ScalarProperty Name="CLAVEERROR" ColumnName="CLAVEERROR" />
+                <ScalarProperty Name="DESCRIBEERROR" ColumnName="DESCRIBEERROR" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDLAPSIF_PTONOM_PARAMETERS_OBTENP" FunctionName="UDLAPSIFModel.Store.UDLAPSIF_PTONOM_PARAMETERS_OBTENP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="UDLAPSIFModel.UDLAPSIF_PTONOM_PARAMETERS_OBTENP_Result">
+                <ScalarProperty Name="IDPARAM" ColumnName="IDPARAM" />
+                <ScalarProperty Name="DESCRIBEPARAM" ColumnName="DESCRIBEPARAM" />
+                <ScalarProperty Name="VALUEPARAM" ColumnName="VALUEPARAM" />
+                <ScalarProperty Name="NAMEUPDATE" ColumnName="NAMEUPDATE" />
+                <ScalarProperty Name="FECHAUPDATE" ColumnName="FECHAUPDATE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDLAPSIF_PTONOM_PARAMETER_BUSCARP" FunctionName="UDLAPSIFModel.Store.UDLAPSIF_PTONOM_PARAMETER_BUSCARP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="UDLAPSIFModel.UDLAPSIF_PTONOM_PARAMETER_BUSCARP_Result">
+                <ScalarProperty Name="IDPARAM" ColumnName="IDPARAM" />
+                <ScalarProperty Name="DESCRIBEPARAM" ColumnName="DESCRIBEPARAM" />
+                <ScalarProperty Name="VALUEPARAM" ColumnName="VALUEPARAM" />
+                <ScalarProperty Name="NAMEUPDATE" ColumnName="NAMEUPDATE" />
+                <ScalarProperty Name="FECHAUPDATE" ColumnName="FECHAUPDATE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDLAPSIF_PTONOM_PROJECT_AGREGA_ACTUALIZA" FunctionName="UDLAPSIFModel.Store.UDLAPSIF_PTONOM_PROJECT_AGREGA_ACTUALIZA">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="UDLAPSIFModel.UDLAPSIF_PTONOM_PROJECT_AGREGA_ACTUALIZA_Result">
+                <ScalarProperty Name="CLAVEERROR" ColumnName="CLAVEERROR" />
+                <ScalarProperty Name="DESCRIBEERROR" ColumnName="DESCRIBEERROR" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDLAPSIF_PTONOM_PROJECT_BUSCARPR" FunctionName="UDLAPSIFModel.Store.UDLAPSIF_PTONOM_PROJECT_BUSCARPR">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="UDLAPSIFModel.UDLAPSIF_PTONOM_PROJECT_BUSCARPR_Result">
+                <ScalarProperty Name="IDPROJECT" ColumnName="IDPROJECT" />
+                <ScalarProperty Name="NUM" ColumnName="NUM" />
+                <ScalarProperty Name="PROJECT" ColumnName="PROJECT" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="ESTATUS" ColumnName="ESTATUS" />
+                <ScalarProperty Name="NAMEUPDATE" ColumnName="NAMEUPDATE" />
+                <ScalarProperty Name="FECHAUPDATE" ColumnName="FECHAUPDATE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDLAPSIF_PTONOM_PROJECT_OBTENPR" FunctionName="UDLAPSIFModel.Store.UDLAPSIF_PTONOM_PROJECT_OBTENPR">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="UDLAPSIFModel.UDLAPSIF_PTONOM_PROJECT_OBTENPR_Result">
+                <ScalarProperty Name="IDPROJECT" ColumnName="IDPROJECT" />
+                <ScalarProperty Name="PROJECT" ColumnName="PROJECT" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="PTONOM_CAT_COSTCENTER">
+            <EntityTypeMapping TypeName="UDLAPSIFModel.PTONOM_CAT_COSTCENTER">
+              <MappingFragment StoreEntitySet="PTONOM_CAT_COSTCENTER">
+                <ScalarProperty Name="update_time" ColumnName="update_time" />
+                <ScalarProperty Name="update_user" ColumnName="update_user" />
+                <ScalarProperty Name="create_time" ColumnName="create_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="ESTATUS" ColumnName="ESTATUS" />
+                <ScalarProperty Name="NAMEUPDATE" ColumnName="NAMEUPDATE" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="CC" ColumnName="CC" />
+                <ScalarProperty Name="ID_CC" ColumnName="ID_CC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PTONOM_CAT_CUENTAS">
+            <EntityTypeMapping TypeName="UDLAPSIFModel.PTONOM_CAT_CUENTAS">
+              <MappingFragment StoreEntitySet="PTONOM_CAT_CUENTAS">
+                <ScalarProperty Name="CUENTAESPECIAL" ColumnName="CUENTAESPECIAL" />
+                <ScalarProperty Name="update_time" ColumnName="update_time" />
+                <ScalarProperty Name="update_user" ColumnName="update_user" />
+                <ScalarProperty Name="create_time" ColumnName="create_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="IDTIPOCUENTA" ColumnName="IDTIPOCUENTA" />
+                <ScalarProperty Name="VALES" ColumnName="VALES" />
+                <ScalarProperty Name="IDPROJECT" ColumnName="IDPROJECT" />
+                <ScalarProperty Name="IDCURRENCY" ColumnName="IDCURRENCY" />
+                <ScalarProperty Name="ID_SC" ColumnName="ID_SC" />
+                <ScalarProperty Name="ID_LA" ColumnName="ID_LA" />
+                <ScalarProperty Name="ID_CC" ColumnName="ID_CC" />
+                <ScalarProperty Name="ESTATUS" ColumnName="ESTATUS" />
+                <ScalarProperty Name="NAMEUPDATE" ColumnName="NAMEUPDATE" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="CUENTA" ColumnName="CUENTA" />
+                <ScalarProperty Name="ID_CUENTA" ColumnName="ID_CUENTA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PTONOM_CAT_LEDGERACCOUNT">
+            <EntityTypeMapping TypeName="UDLAPSIFModel.PTONOM_CAT_LEDGERACCOUNT">
+              <MappingFragment StoreEntitySet="PTONOM_CAT_LEDGERACCOUNT">
+                <ScalarProperty Name="update_time" ColumnName="update_time" />
+                <ScalarProperty Name="update_user" ColumnName="update_user" />
+                <ScalarProperty Name="create_time" ColumnName="create_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="ESTATUS" ColumnName="ESTATUS" />
+                <ScalarProperty Name="NAMEUPDATE" ColumnName="NAMEUPDATE" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="LA" ColumnName="LA" />
+                <ScalarProperty Name="ID_LA" ColumnName="ID_LA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PTONOM_CAT_SPENDCATEGORY">
+            <EntityTypeMapping TypeName="UDLAPSIFModel.PTONOM_CAT_SPENDCATEGORY">
+              <MappingFragment StoreEntitySet="PTONOM_CAT_SPENDCATEGORY">
+                <ScalarProperty Name="update_time" ColumnName="update_time" />
+                <ScalarProperty Name="update_user" ColumnName="update_user" />
+                <ScalarProperty Name="create_time" ColumnName="create_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="ESTATUS" ColumnName="ESTATUS" />
+                <ScalarProperty Name="NAMEUPDATE" ColumnName="NAMEUPDATE" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="SC" ColumnName="SC" />
+                <ScalarProperty Name="ID_SC" ColumnName="ID_SC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PTONOM_CAT_PROJECT">
+            <EntityTypeMapping TypeName="UDLAPSIFModel.PTONOM_CAT_PROJECT">
+              <MappingFragment StoreEntitySet="PTONOM_CAT_PROJECT">
+                <ScalarProperty Name="update_time" ColumnName="update_time" />
+                <ScalarProperty Name="update_user" ColumnName="update_user" />
+                <ScalarProperty Name="create_time" ColumnName="create_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="ESTATUS" ColumnName="ESTATUS" />
+                <ScalarProperty Name="NAMEUPDATE" ColumnName="NAMEUPDATE" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="PROJECT" ColumnName="PROJECT" />
+                <ScalarProperty Name="IDPROJECT" ColumnName="IDPROJECT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PTONOM_CAT_CURRENCY">
+            <EntityTypeMapping TypeName="UDLAPSIFModel.PTONOM_CAT_CURRENCY">
+              <MappingFragment StoreEntitySet="PTONOM_CAT_CURRENCY">
+                <ScalarProperty Name="ESTATUS" ColumnName="ESTATUS" />
+                <ScalarProperty Name="SYMBOL" ColumnName="SYMBOL" />
+                <ScalarProperty Name="MINOR_UNIT" ColumnName="MINOR_UNIT" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+                <ScalarProperty Name="CURRENCY" ColumnName="CURRENCY" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="IDCURRENCY" ColumnName="IDCURRENCY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PTONOM_CAT_PARAMETERS">
+            <EntityTypeMapping TypeName="UDLAPSIFModel.PTONOM_CAT_PARAMETERS">
+              <MappingFragment StoreEntitySet="PTONOM_CAT_PARAMETERS">
+                <ScalarProperty Name="update_time" ColumnName="update_time" />
+                <ScalarProperty Name="update_user" ColumnName="update_user" />
+                <ScalarProperty Name="create_time" ColumnName="create_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="NAMEUPDATE" ColumnName="NAMEUPDATE" />
+                <ScalarProperty Name="ESTATUS" ColumnName="ESTATUS" />
+                <ScalarProperty Name="VALUEPARAM" ColumnName="VALUEPARAM" />
+                <ScalarProperty Name="DESCRIBEPARAM" ColumnName="DESCRIBEPARAM" />
+                <ScalarProperty Name="IDPARAM" ColumnName="IDPARAM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="UDLAPSIF_PTONOM_CUENTAS_AGREGA_ACTUALIZA" FunctionName="UDLAPSIFModel.Store.UDLAPSIF_PTONOM_CUENTAS_AGREGA_ACTUALIZA">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="UDLAPSIFModel.UDLAPSIF_PTONOM_CUENTAS_AGREGA_ACTUALIZA_Result">
+                <ScalarProperty Name="CLAVEERROR" ColumnName="CLAVEERROR" />
+                <ScalarProperty Name="DESCRIBEERROR" ColumnName="DESCRIBEERROR" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDLAPSIF_PTONOM_CUENTAS_BUSCARC" FunctionName="UDLAPSIFModel.Store.UDLAPSIF_PTONOM_CUENTAS_BUSCARC">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="UDLAPSIFModel.UDLAPSIF_PTONOM_CUENTAS_BUSCARC_Result">
+                <ScalarProperty Name="ID_CUENTA" ColumnName="ID_CUENTA" />
+                <ScalarProperty Name="NUM" ColumnName="NUM" />
+                <ScalarProperty Name="CUENTA" ColumnName="CUENTA" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="ID_CC" ColumnName="ID_CC" />
+                <ScalarProperty Name="COSTCENTER" ColumnName="COSTCENTER" />
+                <ScalarProperty Name="ID_LA" ColumnName="ID_LA" />
+                <ScalarProperty Name="LEDGERACCOUNT" ColumnName="LEDGERACCOUNT" />
+                <ScalarProperty Name="ID_SC" ColumnName="ID_SC" />
+                <ScalarProperty Name="SPENDCATEGORY" ColumnName="SPENDCATEGORY" />
+                <ScalarProperty Name="IDCURRENCY" ColumnName="IDCURRENCY" />
+                <ScalarProperty Name="CODECURRENCY" ColumnName="CODECURRENCY" />
+                <ScalarProperty Name="IDTIPOCUENTA" ColumnName="IDTIPOCUENTA" />
+                <ScalarProperty Name="TIPOCUENTA" ColumnName="TIPOCUENTA" />
+                <ScalarProperty Name="IDPROJECT" ColumnName="IDPROJECT" />
+                <ScalarProperty Name="PROJECT" ColumnName="PROJECT" />
+                <ScalarProperty Name="CUENTAESPECIAL" ColumnName="CUENTAESPECIAL" />
+                <ScalarProperty Name="VALES" ColumnName="VALES" />
+                <ScalarProperty Name="ESTATUS" ColumnName="ESTATUS" />
+                <ScalarProperty Name="NAMEUPDATE" ColumnName="NAMEUPDATE" />
+                <ScalarProperty Name="FECHAUPDATE" ColumnName="FECHAUPDATE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="xNOMExcelRH">
+            <EntityTypeMapping TypeName="UDLAPSIFModel.xNOMExcelRH">
+              <MappingFragment StoreEntitySet="xNOMExcelRH">
+                <ScalarProperty Name="CtrlPPTO" ColumnName="CtrlPPTO" />
+                <ScalarProperty Name="JRNLIDX" ColumnName="JRNLIDX" />
+                <ScalarProperty Name="isRead" ColumnName="isRead" />
+                <ScalarProperty Name="ReadDate" ColumnName="ReadDate" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="XCHGRATE" ColumnName="XCHGRATE" />
+                <ScalarProperty Name="TRXDATE" ColumnName="TRXDATE" />
+                <ScalarProperty Name="SOURCDOC" ColumnName="SOURCDOC" />
+                <ScalarProperty Name="REFRENCE" ColumnName="REFRENCE" />
+                <ScalarProperty Name="EXCHDATE" ColumnName="EXCHDATE" />
+                <ScalarProperty Name="DSCRIPTN" ColumnName="DSCRIPTN" />
+                <ScalarProperty Name="DEBITAMT" ColumnName="DEBITAMT" />
+                <ScalarProperty Name="CURYDEBITAMT" ColumnName="CURYDEBITAMT" />
+                <ScalarProperty Name="CURYCRDTAMT" ColumnName="CURYCRDTAMT" />
+                <ScalarProperty Name="CURRNIDX" ColumnName="CURRNIDX" />
+                <ScalarProperty Name="CURNCYID" ColumnName="CURNCYID" />
+                <ScalarProperty Name="CRDTAMT" ColumnName="CRDTAMT" />
+                <ScalarProperty Name="ACTNUMBER" ColumnName="ACTNUMBER" />
+                <ScalarProperty Name="ACTINDX" ColumnName="ACTINDX" />
+                <ScalarProperty Name="BACHNUMB" ColumnName="BACHNUMB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

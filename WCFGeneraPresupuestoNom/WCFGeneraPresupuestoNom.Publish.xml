@@ -1,0 +1,17 @@
+<publishData>
+  <publishTarget publishUrl="http://localhost/WCFGeneraPresupuestoNom">
+    <file relUrl="Web.config" publishTime="02/03/2026 17:42:27" />
+    <file relUrl="bin/EntityFramework.dll" publishTime="11/03/2015 17:43:34" />
+    <file relUrl="bin/WCFGeneraPresupuestoNom.dll" publishTime="02/03/2026 17:43:09" />
+    <file relUrl="bin/Presupuesto.dll" publishTime="02/03/2026 17:43:09" />
+    <file relUrl="bin/Newtonsoft.Json.xml" publishTime="10/21/2023 14:52:17" />
+    <file relUrl="bin/EntityFramework.xml" publishTime="11/03/2015 17:43:34" />
+    <file relUrl="bin/WCFGeneraPresupuestoNom.pdb" publishTime="02/03/2026 17:43:09" />
+    <file relUrl="bin/Newtonsoft.Json.dll" publishTime="10/21/2023 14:52:17" />
+    <file relUrl="bin/WCFGeneraPresupuestoNom.dll.config" publishTime="02/03/2026 17:42:27" />
+    <file relUrl="bin/Udla.Exceptions.dll" publishTime="10/21/2023 14:52:16" />
+    <file relUrl="WCFGeneraPresupuestoNom.Service1.svc" publishTime="02/03/2026 17:43:17" />
+    <file relUrl="bin/Data Source=SISDEVDB01; Initial Catalog=UDLAPSIF;integrated security=SSPIbuscarPolizaNom12052025.txt" publishTime="05/12/2025 11:51:40" />
+    <file relUrl="bin/Presupuesto.pdb" publishTime="02/03/2026 17:43:09" />
+  </publishTarget>
+</publishData>
